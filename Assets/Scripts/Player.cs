@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public bool isAttacking;
+    [HideInInspector] public bool canMove;
+
     Animator anim;
     Transform cameraFollow;
-
-    [HideInInspector] public bool canMove;
     float acceleration = 10;
     float decceleration = 12;
     Vector3 rawInput;
     Vector3 input;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +26,22 @@ public class Player : MonoBehaviour
     {
         Locomotion();
         Aiming();
-        if (Input.GetMouseButton(0))
-            anim.SetTrigger("attack");
+        if (Input.GetMouseButtonDown(0))
+            Attack();
+    }
+
+    public void Attack()
+    {
+        anim.SetTrigger("attack");
+        StartCoroutine(isAttackingCheck());
+    }
+
+    IEnumerator isAttackingCheck()
+    {
+        isAttacking = true;
+        yield return new WaitForSeconds(0.21f);
+        yield return new WaitUntil(() => anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f || !anim.GetCurrentAnimatorStateInfo(0).IsTag("attack"));
+        isAttacking = false;
     }
 
     public void Aiming()

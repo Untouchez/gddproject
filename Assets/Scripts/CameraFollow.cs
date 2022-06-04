@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour
     public float rotSpeed;
     // Update is called once per frame
 
-    void Start()
+    void Awake()
     {
         instance = this.transform;
     }
