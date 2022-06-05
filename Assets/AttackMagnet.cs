@@ -5,6 +5,12 @@ using UnityEngine;
 public class AttackMagnet : MonoBehaviour
 {
     public List<Health> Close; //gets called by player from attack function
+    public static AttackMagnet instance;
+
+    public void Awake()
+    {
+        instance = this;
+    }
 
     public void OnTriggerEnter(Collider other)
     {

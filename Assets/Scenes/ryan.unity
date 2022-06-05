@@ -11497,13 +11497,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotTarget: {fileID: 0}
-  attackMagnet: {fileID: 853252211}
   rf: {fileID: 9072025169009304366}
   lf: {fileID: 9070465450179071810}
   sw: {fileID: 1442667539775997}
-  speed: 150
+  speed: 3
   isAttacking: 0
   rotSpeed: 10
+  isRolling: 0
+  rollForce: 100
 --- !u!136 &9072049733193313936
 CapsuleCollider:
   m_ObjectHideFlags: 0
