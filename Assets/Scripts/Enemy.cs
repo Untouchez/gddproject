@@ -17,6 +17,7 @@ public class Enemy : Health
 
     public override void TakeDamage(int damage)
     {
-        anim.SetTrigger(transform + " take damage: " + damage);
+        print(transform + " take damage: " + damage);
+        anim.SetTrigger("Take Damage");
     }
 }

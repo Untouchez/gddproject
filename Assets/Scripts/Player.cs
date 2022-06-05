@@ -34,7 +34,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         Locomotion();
-        Aiming();
         if (Input.GetMouseButtonDown(0))
             Attack();
 
@@ -42,6 +41,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Aiming();
         if (CanMove()) {
             Vector3 direction = new Vector3(input.x, 0, input.y);
             rb.velocity = transform.TransformDirection(direction * speed * Time.deltaTime);
@@ -51,14 +51,33 @@ public class Player : MonoBehaviour
     }
 
     public void Attack()
-    {
+    {    //called when youcclick mouse during update
+         //stop moving
+         //find closest viable target
+         //move to the target
+         //play attack anim
+
         rb.velocity = Vector3.zero; //lose momentum
 
         if (attackMagnet.Close.Count != 0) { //if theres an enemy close
-            Vector3 targetPos = attackMagnet.Close[0].transform.position; 
+
+            //take the Dot product of each enemy to see which object inside of Close is closest to the forward of the player
+            Health closet = attackMagnet.Close[0];
+            float maxLook = 0f;
+            foreach(Health target in attackMagnet.Close) {
+                float lookDir = Vector3.Dot(cameraFollow.forward.normalized, (target.transform.position - transform.position).normalized);
+                if(lookDir >= maxLook) {
+                    closet = target;
+                    maxLook = lookDir;
+                }
+            }
+            rotTarget = closet.transform;
+
+            //move the player 1unit away from the target
+            Vector3 targetPos = rotTarget.transform.position; 
             Vector3 targetDir = (transform.position - targetPos).normalized;
-            rotTarget = attackMagnet.Close[0].transform;
-            transform.DOMove(targetPos + targetDir, 0.5f); //take 0.5seconds to move to the enemy
+
+            transform.DOMove(targetPos + targetDir, 0.5f); //take 0.5 seconds to move to the enemy
         }
         anim.SetTrigger("attack");
         StartCoroutine(isAttackingCheck());
@@ -75,6 +94,10 @@ public class Player : MonoBehaviour
 
     public void Aiming()
     {
+        //gets called during fixed update
+        //if therse a rot target, override the rotation and rotate towards the target
+        //otherwise rotate towards the mouse
+
         if (rotTarget) {
             transform.forward = Vector3.Slerp(transform.forward, (rotTarget.position - transform.position).normalized, rotSpeed * Time.deltaTime) ;
             return;
@@ -88,6 +111,11 @@ public class Player : MonoBehaviour
 
     public void Locomotion()
     {
+        //Called during update
+        //gets wasd input and calculates momentum
+        //moves player using rigibody
+        //sets floats in animator to play moving animations
+
         if (!CanMove()) {
             input = Vector3.Slerp(input, Vector3.zero, decceleration * Time.deltaTime);
             anim.SetFloat("InputX", 0);
@@ -110,6 +138,8 @@ public class Player : MonoBehaviour
         return !isAttacking;
     }
 
+    //called during when an animation is played
+    #region AnimationEvents
     public void OpenCollider(string where)
     {
         int damageMultiplier = where[2] - '0';
@@ -144,4 +174,5 @@ public class Player : MonoBehaviour
     {
 
     }
+    #endregion
 }
