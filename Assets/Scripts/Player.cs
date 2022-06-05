@@ -65,7 +65,11 @@ public class Player : MonoBehaviour
             Health closet = attackMagnet.Close[0];
             float maxLook = 0f;
             foreach(Health target in attackMagnet.Close) {
-                float lookDir = Vector3.Dot(cameraFollow.forward.normalized, (target.transform.position - transform.position).normalized);
+                float lookDir;
+                if (new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) != Vector3.zero)  // if theres wasd movement
+                    lookDir = Vector3.Dot(cameraFollow.TransformDirection(new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"))), (target.transform.position - transform.position).normalized);
+                else
+                    lookDir = Vector3.Dot(cameraFollow.forward.normalized, (target.transform.position - transform.position).normalized);
                 if(lookDir >= maxLook) {
                     closet = target;
                     maxLook = lookDir;
