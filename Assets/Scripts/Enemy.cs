@@ -1,0 +1,22 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Enemy : Health
+{
+    Animator anim;
+
+    public void Start()
+    {
+        anim = GetComponent<Animator>(); 
+    }
+    public override void Heal(int heal)
+    {
+        
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        anim.SetTrigger(transform + " take damage: " + damage);
+    }
+}
