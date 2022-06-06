@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 3859140997936992749}
   - component: {fileID: 3859140997936992748}
   - component: {fileID: 3859140997936992737}
+  - component: {fileID: 854670204226777854}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,6 +122,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySize: 5
+  slots: []
+--- !u!114 &854670204226777854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3859140997936992751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24d1b5662b98a9c4298d09f2104d340a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: Oski
 --- !u!1 &3859140997952725175
 GameObject:
   m_ObjectHideFlags: 0

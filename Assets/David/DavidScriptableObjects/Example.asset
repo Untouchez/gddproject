@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3413209308079702096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: 064da6bb-36b9-4c69-b2bc-ff855f8778d2
+  m_EditorClassIdentifier: 
+  text: Sure!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 709
+    y: 229
+    width: 200
+    height: 100
+  isPlayerSpeaking: 1
+  onEnterAction: 
+  onExitAction: GiveQuest
+--- !u!114 &-2605959220877603209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: 70f4023a-0cf2-472d-aaca-6b8c2a722b96
+  m_EditorClassIdentifier: 
+  text: Hello
+  children:
+  - a994120d-dc98-450b-ba57-1fc4812b5684
+  rect:
+    serializedVersion: 2
+    x: 257
+    y: 141
+    width: 200
+    height: 100
+  isPlayerSpeaking: 1
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-2316430953138288298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: 11af833d-20bc-43fd-a2a6-25e5a44dc418
+  m_EditorClassIdentifier: 
+  text: Hi
+  children:
+  - 70f4023a-0cf2-472d-aaca-6b8c2a722b96
+  rect:
+    serializedVersion: 2
+    x: 24
+    y: 142
+    width: 200
+    height: 100
+  isPlayerSpeaking: 0
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &-407162243765132864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: a994120d-dc98-450b-ba57-1fc4812b5684
+  m_EditorClassIdentifier: 
+  text: Help me find a key, it should be near the MLK
+  children:
+  - ad40fdaa-02f7-47e4-ac97-269b206578af
+  - 064da6bb-36b9-4c69-b2bc-ff855f8778d2
+  rect:
+    serializedVersion: 2
+    x: 487
+    y: 134
+    width: 200
+    height: 100
+  isPlayerSpeaking: 0
+  onEnterAction: 
+  onExitAction: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9f6cf506844954f91e24bb86f484d4, type: 3}
+  m_Name: Example
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -2316430953138288298}
+  - {fileID: -2605959220877603209}
+  - {fileID: -407162243765132864}
+  - {fileID: 2783698096560159145}
+  - {fileID: -3413209308079702096}
+  newNodeOffsetFromParent: {x: 50, y: 0}
+--- !u!114 &2783698096560159145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: ad40fdaa-02f7-47e4-ac97-269b206578af
+  m_EditorClassIdentifier: 
+  text: No
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 713
+    y: 61
+    width: 200
+    height: 100
+  isPlayerSpeaking: 1
+  onEnterAction: 
+  onExitAction: 

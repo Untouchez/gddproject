@@ -9,6 +9,7 @@ namespace GDDProject.UI
         [SerializeField] KeyCode toggleKey = KeyCode.I;
         [SerializeField] GameObject uiContainer = null;
 
+        // TO BE MOVED
         private Player player = null;
         private CameraFollow cam = null;
 
