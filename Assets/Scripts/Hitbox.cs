@@ -26,7 +26,7 @@ public class Hitbox : MonoBehaviour
 
     public void OnTriggerEnter(Collider collision)
     {
-        if (collision.transform.GetComponent<Health>()) {
+        if (collision.transform.GetComponent<Health>() != null) {
             hitEffect.transform.position = collision.ClosestPoint(collision.transform.position) + new Vector3(0,0.1f,0);
             hitEffect.Play(true);
             collision.transform.GetComponent<Health>().TakeDamage(damage);

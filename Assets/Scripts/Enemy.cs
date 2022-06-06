@@ -1,23 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : Health
 {
-    Animator anim;
+    public StateManager myStateManager;
 
-    public void Start()
-    {
-        anim = GetComponent<Animator>(); 
-    }
     public override void Heal(int heal)
     {
-        
     }
+        
 
     public override void TakeDamage(int damage)
     {
-        print(transform + " take damage: " + damage);
-        anim.SetTrigger("Take Damage");
+
     }
 }

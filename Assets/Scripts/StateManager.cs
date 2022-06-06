@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public State currentState;
+
+
+    private void Start()
     {
-        
+        if(currentState)
+            currentState.MyStart();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentState != null)
+            currentState.MyUpdate();
+        print(transform.root + "update" + currentState);
+    }
+
+    public void ChangeState(State newState)
+    {
+        if (newState == null)
+            return;
+        newState.MyStart();
+        currentState = newState;
     }
 }

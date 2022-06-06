@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance;
     public Transform rotTarget;
     public Hitbox rf; //right fist
     public Hitbox lf; //left fist
@@ -21,7 +22,11 @@ public class Player : MonoBehaviour
     float decceleration = 12;
     Vector3 rawInput;
     Vector3 input;
-    
+
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {

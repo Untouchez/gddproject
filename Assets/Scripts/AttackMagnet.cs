@@ -15,14 +15,14 @@ public class AttackMagnet : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         Health newThing = other.transform.GetComponent<Health>();
-        if (newThing)
+        if (newThing !=null)
             Close.Add(newThing);
     }
 
     public void OnTriggerExit(Collider other)
     {
         Health newThing = other.transform.GetComponent<Health>();
-        if(newThing)
+        if(newThing != null)
             Close.Remove(newThing);
     }
 }
