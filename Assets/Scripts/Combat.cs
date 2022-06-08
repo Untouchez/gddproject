@@ -29,7 +29,7 @@ public class Combat : State
         Vector3 dirToPlayer = (player.transform.position - anim.transform.position);
         test = Vector3.Dot(dir, dirToPlayer);
 
-        if (Vector3.Distance(anim.transform.position, player.transform.position) >= attackRange && !isAttacking()) {
+        if (Vector3.Distance(anim.transform.position, player.transform.position) >= attackRange+agent.stoppingDistance && !isAttacking()) {
             anim.ResetTrigger("attack");
             anim.SetTrigger("cancel");
             myStateManager.ChangeState(chasePlayer);
@@ -38,6 +38,7 @@ public class Combat : State
             dirToPlayer = (player.transform.position - anim.transform.position).normalized;
             agent.SetDestination(transform.position);
             if (Vector3.Dot(dir,dirToPlayer) >= 0.9f) {
+                anim.SetFloat("speed", 0);
                 anim.SetTrigger("attack");
                 agent.SetDestination(transform.position);
             } else {

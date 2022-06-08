@@ -7,7 +7,6 @@ public class Patrol : State
 {
     public Animator anim;
     public NavMeshAgent agent;
-    public Transform me;
 
     public State chase;
     public float patrolDistance;

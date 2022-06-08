@@ -24,7 +24,7 @@ public class ChasePlayer : State
     {
         agent.SetDestination(player.transform.position);
         anim.SetFloat("speed", agent.velocity.sqrMagnitude / agent.speed);
-        if (Vector3.Distance(transform.position, player.transform.position) <= attackRange) {
+        if (Vector3.Distance(transform.position, player.transform.position) <= attackRange+agent.stoppingDistance) {
             myStateManager.ChangeState(Combat);
         }
     }

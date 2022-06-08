@@ -18,7 +18,6 @@ public class StateManager : MonoBehaviour
     {
         if (currentState != null)
             currentState.MyUpdate();
-        print(transform.root + "update" + currentState);
     }
 
     public void ChangeState(State newState)

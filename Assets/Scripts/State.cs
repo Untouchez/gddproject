@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class State : MonoBehaviour
 {
     public StateManager myStateManager;
+    public Transform me;
 
     public abstract void MyUpdate();
 

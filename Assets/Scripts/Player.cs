@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Player : MonoBehaviour
+public class Player : Health
 {
     public static Player instance;
     public Transform rotTarget;
     public Hitbox rf; //right fist
     public Hitbox lf; //left fist
     public Hitbox sw; //sword
-
+    public float rotSpeed;
+    public bool isRolling;
+    public float rollForce;
     public float speed;
     public bool isAttacking;
+
+    Vector3 rollDirection;
     Rigidbody rb;
     Animator anim;
     AttackMagnet attackMagnet;
     Transform cameraFollow;
-    public float rotSpeed;
     float acceleration = 10;
     float decceleration = 12;
     Vector3 rawInput;
@@ -27,6 +30,7 @@ public class Player : MonoBehaviour
     {
         instance = this;
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,21 +45,19 @@ public class Player : MonoBehaviour
     void Update()
     {
         Locomotion();
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && CanAttack())
             Attack();
-        if (Input.GetKeyDown(KeyCode.LeftShift) && rawInput!=Vector3.zero)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && rawInput!=Vector3.zero && CanMove())
             Roll();
     }
 
     private void FixedUpdate()
     {
-        if(isRolling) {
-            transform.forward = rollDirection;
-            return;
-        }
+
         Aiming();
+
         if (CanMove()) {
-            Vector3 direction = new Vector3(input.x, 0, input.y);
+            Vector3 direction = new Vector3(input.x, 0, input.y).normalized;
             rb.velocity = transform.TransformDirection(direction * speed);
         }
     }
@@ -106,23 +108,6 @@ public class Player : MonoBehaviour
         isAttacking = false;
     }
 
-    public void Aiming()
-    {
-        //gets called during fixed update
-        //if therse a rot target, override the rotation and rotate towards the target
-        //otherwise rotate towards the mouse
-
-        if (rotTarget) {
-            transform.forward = Vector3.Slerp(transform.forward, (rotTarget.position - transform.position).normalized, rotSpeed * Time.deltaTime) ;
-            return;
-        }
-        if (CanMove()) {
-            transform.forward = Vector3.Slerp(transform.forward, cameraFollow.forward, rotSpeed * Time.deltaTime);
-            return;
-        }
-
-    }
-
     public void Locomotion()
     {
         //Called during update
@@ -147,31 +132,67 @@ public class Player : MonoBehaviour
         anim.SetFloat("InputY", input.y);
     }
 
-    public bool isRolling;
-    Vector3 rollDirection;
-    public float rollForce;
-    public void Roll() {
+    public void Aiming()
+    {
+        //gets called during fixed update
+        //if therse a rot target, override the rotation and rotate towards the target
+        //otherwise rotate towards the mouse
+
         if (isRolling)
+        {
+            transform.forward = Vector3.Slerp(transform.forward, rollDirection, rotSpeed * Time.deltaTime);
             return;
-        isRolling = true;
-        rollDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        }
+        if (rotTarget)
+        {
+            transform.forward = Vector3.Slerp(transform.forward, (rotTarget.position - transform.position).normalized, rotSpeed * Time.deltaTime);
+            return;
+        }
+        if (CanMove())
+        {
+            transform.forward = Vector3.Slerp(transform.forward, cameraFollow.forward, rotSpeed * Time.deltaTime);
+            return;
+        }
+
+    }
+
+    public void Roll() {
+        rollDirection = transform.TransformDirection(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")));
         StartCoroutine(isRollingCheck());
-        rb.AddForce((transform.TransformDirection(rollDirection) * rollForce));
         anim.SetTrigger("roll");
-        transform.LookAt(transform.TransformDirection(rollDirection));
+        rb.AddForce(rollDirection * rollForce);
     }
 
     IEnumerator isRollingCheck()
     {
         isRolling = true;
-        yield return new WaitForSeconds(0.21f);
-        yield return new WaitUntil(() => !anim.GetCurrentAnimatorStateInfo(0).IsTag("roll"));
+        yield return new WaitForEndOfFrame();
+        yield return new WaitUntil(() => !anim.GetCurrentAnimatorStateInfo(0).IsTag("roll") || anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.7f);
         isRolling = false;
     }
 
     public bool CanMove()
     {
         return !isAttacking && !isRolling;
+    }
+
+    public bool CanAttack()
+    {
+        return !isRolling;
+    }
+
+    public bool CanRoll()
+    {
+        return rawInput != Vector3.zero && !isRolling && !isAttacking;
+    }
+    public override void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+    }
+
+    public override void Heal(int heal)
+    {
+
     }
 
     //called during when an animation is played
