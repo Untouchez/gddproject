@@ -45,8 +45,10 @@ public class Player : Health
     void Update()
     {
         Locomotion();
+
         if (Input.GetMouseButtonDown(0) && CanAttack())
             Attack();
+
         if (Input.GetKeyDown(KeyCode.LeftShift) && rawInput!=Vector3.zero && CanMove())
             Roll();
     }
@@ -116,6 +118,7 @@ public class Player : Health
         //sets floats in animator to play moving animations
         rawInput = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
 
+        //if cant move stop moving player reset input
         if (!CanMove()) {
             input = Vector3.Slerp(input, Vector3.zero, decceleration * Time.deltaTime);
             anim.SetFloat("InputX", 0);
@@ -123,6 +126,7 @@ public class Player : Health
             return;
         }
 
+        //change input and animations
         if (rawInput != Vector3.zero)
             input = Vector3.Slerp(input, rawInput, acceleration * Time.deltaTime);
         else
@@ -167,7 +171,7 @@ public class Player : Health
     {
         isRolling = true;
         yield return new WaitForEndOfFrame();
-        yield return new WaitUntil(() => !anim.GetCurrentAnimatorStateInfo(0).IsTag("roll") || anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.7f);
+        yield return new WaitUntil(() => !anim.GetCurrentAnimatorStateInfo(0).IsTag("roll") || anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.89f);
         isRolling = false;
     }
 
