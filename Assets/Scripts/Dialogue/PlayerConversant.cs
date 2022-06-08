@@ -14,6 +14,8 @@ namespace GDDProject.Dialogues
         private DialogueNode currentNode;
         private bool isChoosing = false;
         private AIConversant currentAIConversant;
+        // TO BE MOVED
+        private float playerSpeedStorage;
 
         // event subscribed by DialogueUI's UpdateUI(), so that when StartDialogue() executes, UpdateUI()
         // will be called, without circular dependency
@@ -39,6 +41,7 @@ namespace GDDProject.Dialogues
             onConversationUpdated();
 
             // TO BE MOVED
+            GetComponent<Player>().StopPlayer();
             GetComponent<Player>().enabled = false;
             FindObjectOfType<CameraFollow>().enabled = false;
         }
@@ -56,7 +59,7 @@ namespace GDDProject.Dialogues
         // accessed by DialogueUI, returning an IEnumerable of choices as strings to be displayed
         public IEnumerable<DialogueNode> GetChoices()
         {
-            return currentDialogue.GetPlayerChildren(currentNode);
+            return FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode));
         }
 
         public string GetCurrentConversantName()
@@ -91,7 +94,7 @@ namespace GDDProject.Dialogues
         {
             // check if Next() results in player choices
             // find the number of player dialogue nodes after currentNode
-            int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
+            int numPlayerResponses = FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode)).Count();
             if (numPlayerResponses > 0)
             {
                 // player choosing state!
@@ -103,7 +106,7 @@ namespace GDDProject.Dialogues
 
             // no player dialogue nodes after currentNode
             // retrieve all the children (AI response nodes) of currentNode as an array instead of IEnumerable
-            DialogueNode[] children = currentDialogue.GetAIChildren(currentNode).ToArray();
+            DialogueNode[] children = FilterOnCondition(currentDialogue.GetAIChildren(currentNode)).ToArray();
             // pick a random response to be displayed
             TriggerExitAction();
             currentNode = children[UnityEngine.Random.Range(0, children.Count())];
@@ -131,7 +134,7 @@ namespace GDDProject.Dialogues
         // accessed by DialogueUI, checks whether we have reached the end of a tree branch
         public bool HasNext()
         {
-            return currentDialogue.GetAllChildren(currentNode).Count() > 0;
+            return FilterOnCondition(currentDialogue.GetAllChildren(currentNode)).Count() > 0;
         }
 
         // accessed by DialogueUI, checks whether we have a non-null/active currentDialogue object
@@ -179,6 +182,17 @@ namespace GDDProject.Dialogues
             foreach (DialogueTrigger trigger in currentAIConversant.GetComponents<DialogueTrigger>())
             {
                 trigger.Trigger(action);
+            }
+        }
+
+        private IEnumerable<DialogueNode> FilterOnCondition(IEnumerable<DialogueNode> nodes)
+        {
+            foreach (var node in nodes)
+            {
+                if (node.PassCondition(GetComponents<IDialogueNodeConditionEvaluator>()))
+                {
+                    yield return node;
+                }
             }
         }
     }

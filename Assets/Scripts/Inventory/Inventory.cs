@@ -1,9 +1,10 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GDDProject.Inventories
 {
-    public class Inventory : MonoBehaviour
+    public class Inventory : MonoBehaviour, IDialogueNodeConditionEvaluator
     {
         [SerializeField] int inventorySize = 16;
 
@@ -107,6 +108,26 @@ namespace GDDProject.Inventories
             }
             return -1;
         }
+
+        public bool? Evaluate(Condition condition, IEnumerable<UnityEngine.Object> objects)
+        {
+            if (condition != Condition.HasInventoryItem)
+            {
+                return null;
+            }
+
+            foreach (var obj in objects)
+            {
+                InventoryItem item = obj as InventoryItem;
+                if (item != null)
+                {
+                    return HasItem(item);
+                }
+            }
+
+            // no required inventory item supplied
+            return true;
+        }
     }
 }
-    
+ 

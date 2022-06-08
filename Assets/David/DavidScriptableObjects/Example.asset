@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4002387226333615264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: 06a7ca33-a142-41ea-83ad-91b1ead4a1dd
+  m_EditorClassIdentifier: 
+  text: Thank you for helping me!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 491
+    y: 18
+    width: 200
+    height: 100
+  isPlayerSpeaking: 0
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    ands:
+    - ors:
+      - condition: 2
+        negated: 0
+        objects:
+        - {fileID: 11400000, guid: fe10058bd2775804f9c626b01b984820, type: 2}
 --- !u!114 &-3413209308079702096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16,13 +46,20 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 709
-    y: 229
+    x: 729
+    y: 159
     width: 200
     height: 100
   isPlayerSpeaking: 1
   onEnterAction: 
   onExitAction: GiveQuest
+  condition:
+    ands:
+    - ors:
+      - condition: 1
+        negated: 1
+        objects:
+        - {fileID: 11400000, guid: fe10058bd2775804f9c626b01b984820, type: 2}
 --- !u!114 &-2605959220877603209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,6 +75,7 @@ MonoBehaviour:
   text: Hello
   children:
   - a994120d-dc98-450b-ba57-1fc4812b5684
+  - 06a7ca33-a142-41ea-83ad-91b1ead4a1dd
   rect:
     serializedVersion: 2
     x: 257
@@ -47,6 +85,8 @@ MonoBehaviour:
   isPlayerSpeaking: 1
   onEnterAction: 
   onExitAction: 
+  condition:
+    ands: []
 --- !u!114 &-2316430953138288298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +102,7 @@ MonoBehaviour:
   text: Hi
   children:
   - 70f4023a-0cf2-472d-aaca-6b8c2a722b96
+  - 433fb30e-c571-4d26-b801-5a7a0e77bc23
   rect:
     serializedVersion: 2
     x: 24
@@ -71,6 +112,8 @@ MonoBehaviour:
   isPlayerSpeaking: 0
   onEnterAction: 
   onExitAction: 
+  condition:
+    ands: []
 --- !u!114 &-407162243765132864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,15 +130,23 @@ MonoBehaviour:
   children:
   - ad40fdaa-02f7-47e4-ac97-269b206578af
   - 064da6bb-36b9-4c69-b2bc-ff855f8778d2
+  - 924ee90f-190e-4f9f-924e-a2e80da027d4
   rect:
     serializedVersion: 2
     x: 487
-    y: 134
+    y: 144
     width: 200
     height: 100
   isPlayerSpeaking: 0
   onEnterAction: 
   onExitAction: 
+  condition:
+    ands:
+    - ors:
+      - condition: 2
+        negated: 1
+        objects:
+        - {fileID: 11400000, guid: fe10058bd2775804f9c626b01b984820, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +165,10 @@ MonoBehaviour:
   - {fileID: -407162243765132864}
   - {fileID: 2783698096560159145}
   - {fileID: -3413209308079702096}
+  - {fileID: 8619871580240355494}
+  - {fileID: 6575262161003667659}
+  - {fileID: -4002387226333615264}
+  - {fileID: 3267073496791710854}
   newNodeOffsetFromParent: {x: 50, y: 0}
 --- !u!114 &2783698096560159145
 MonoBehaviour:
@@ -131,10 +186,109 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 713
+    x: 731
     y: 61
     width: 200
     height: 100
   isPlayerSpeaking: 1
   onEnterAction: 
   onExitAction: 
+  condition:
+    ands: []
+--- !u!114 &3267073496791710854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: 924ee90f-190e-4f9f-924e-a2e80da027d4
+  m_EditorClassIdentifier: 
+  text: On my way already!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 724
+    y: 261
+    width: 200
+    height: 100
+  isPlayerSpeaking: 1
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    ands:
+    - ors:
+      - condition: 1
+        negated: 0
+        objects:
+        - {fileID: 11400000, guid: fe10058bd2775804f9c626b01b984820, type: 2}
+--- !u!114 &6575262161003667659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: 9d8abefb-5cbe-4b26-a238-74c5b5bb3666
+  m_EditorClassIdentifier: 
+  text: Thank you!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 493
+    y: 342
+    width: 200
+    height: 100
+  isPlayerSpeaking: 0
+  onEnterAction: 
+  onExitAction: CompleteQuest
+  condition:
+    ands: []
+--- !u!114 &8619871580240355494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: 433fb30e-c571-4d26-b801-5a7a0e77bc23
+  m_EditorClassIdentifier: 
+  text: I found your key!
+  children:
+  - 9d8abefb-5cbe-4b26-a238-74c5b5bb3666
+  rect:
+    serializedVersion: 2
+    x: 256
+    y: 287
+    width: 200
+    height: 100
+  isPlayerSpeaking: 1
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    ands:
+    - ors:
+      - condition: 0
+        negated: 0
+        objects:
+        - {fileID: 11400000, guid: 78c6917a4c84ef94a87edd1d1652d272, type: 2}
+    - ors:
+      - condition: 1
+        negated: 0
+        objects:
+        - {fileID: 11400000, guid: fe10058bd2775804f9c626b01b984820, type: 2}
+    - ors:
+      - condition: 2
+        negated: 1
+        objects:
+        - {fileID: 11400000, guid: fe10058bd2775804f9c626b01b984820, type: 2}
+        - {fileID: 11400000, guid: fe10058bd2775804f9c626b01b984820, type: 2}

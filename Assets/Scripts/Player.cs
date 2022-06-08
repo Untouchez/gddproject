@@ -169,6 +169,14 @@ public class Player : MonoBehaviour
         return !isAttacking && !isRolling;
     }
 
+    public void StopPlayer()
+    {
+        rb.velocity = Vector3.zero;
+        input = Vector3.zero;
+        anim.SetFloat("InputX", 0);
+        anim.SetFloat("InputY", 0);
+    }
+
     //called during when an animation is played
     #region AnimationEvents
     public void OpenCollider(string where)

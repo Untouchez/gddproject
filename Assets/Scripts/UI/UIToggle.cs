@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GDDProject.Dialogues;
+using UnityEngine.UI;
 
 namespace GDDProject.UI
 {
@@ -18,11 +20,12 @@ namespace GDDProject.UI
             uiContainer.SetActive(false);
             player = FindObjectOfType<Player>();
             cam = FindObjectOfType<CameraFollow>();
+            player.GetComponent<PlayerConversant>().onConversationUpdated += HideUI;
         }
 
         void Update()
         {
-            if (Input.GetKeyDown(toggleKey))
+            if (Input.GetKeyDown(toggleKey) && player.GetComponent<PlayerConversant>().GetCurrentAIConversant() == null)
             {
                 Toggle();
             }
@@ -31,8 +34,32 @@ namespace GDDProject.UI
         public void Toggle()
         {
             uiContainer.SetActive(!uiContainer.activeSelf);
+
+            foreach (Transform child in transform)
+            {
+                if (child.gameObject.activeSelf && child.gameObject != uiContainer
+                    && !child.GetComponent<Text>())
+                {
+                    return;
+                }
+            }
+
+            player.StopPlayer();
+            
             player.enabled = !player.enabled;
-            cam.enabled = !cam.enabled;
+            cam.enabled = !cam.enabled;          
+        }
+
+        public void HideUI()
+        {
+            foreach (Transform child in transform)
+            {
+                if (child.gameObject.name == "Dialogue")
+                {
+                    continue;
+                }
+                child.gameObject.SetActive(false);
+            }
         }
     }
 }

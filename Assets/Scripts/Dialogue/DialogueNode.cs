@@ -15,6 +15,7 @@ namespace GDDProject.Dialogues
         [SerializeField] bool isPlayerSpeaking = false;
         [SerializeField] private string onEnterAction;
         [SerializeField] private string onExitAction;
+        [SerializeField] private DialogueCondition condition;
 
         // the DialogueNode class should handle its own Undo's for its states
         public string GetText()
@@ -45,6 +46,11 @@ namespace GDDProject.Dialogues
         public string GetOnExitAction()
         {
             return onExitAction;
+        }
+
+        public bool PassCondition(IEnumerable<IDialogueNodeConditionEvaluator> evaluators)
+        {
+            return condition.CheckAllEvaluators(evaluators);
         }
 
 // UNITY_EDITOR macro is used for excluding all the code that can change our dialogue editor from the final build
