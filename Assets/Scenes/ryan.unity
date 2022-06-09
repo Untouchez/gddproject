@@ -415,7 +415,7 @@ MonoBehaviour:
   anim: {fileID: 95365185269545173}
   agent: {fileID: 1762625762409955}
   chasePlayer: {fileID: 1269209690}
-  rotSpeed: 0.5
+  rotSpeed: 3
   attackRange: 1
   myAttack: attack
   attackSpeed: 0.8
@@ -1887,6 +1887,7 @@ MonoBehaviour:
   currentHealth: 100
   myStateManager: {fileID: 555163920}
   hitBox: {fileID: 1029070766943260}
+  combat: {fileID: 726723987}
   damage: 4
 --- !u!195 &1762625762409955
 NavMeshAgent:

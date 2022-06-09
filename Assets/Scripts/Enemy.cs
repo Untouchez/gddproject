@@ -7,7 +7,7 @@ public class Enemy : Health
 {
     public StateManager myStateManager;
     public Hitbox hitBox;
-
+    public State combat;
     public int damage;
     public override void Heal(int heal)
     {
@@ -17,7 +17,8 @@ public class Enemy : Health
 
     public override void TakeDamage(int damage)
     {
-
+        if (myStateManager.currentState != combat)
+            myStateManager.ChangeState(combat);
     }
 
     public void Attack()
