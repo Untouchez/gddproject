@@ -1085,6 +1085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 916508294}
+  atackForce: 0
 --- !u!135 &1029070766943261
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1497,6 +1498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 414659674}
+  atackForce: 0
 --- !u!1 &1448323211385063
 GameObject:
   m_ObjectHideFlags: 0
@@ -5558,6 +5560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 0}
+  atackForce: 0
 --- !u!1 &9070470391212024352
 GameObject:
   m_ObjectHideFlags: 0
@@ -6450,6 +6453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 0}
+  atackForce: 0
 --- !u!1 &9072045035156499120
 GameObject:
   m_ObjectHideFlags: 0
@@ -6504,11 +6508,11 @@ MonoBehaviour:
   rf: {fileID: 9072025169009304366}
   lf: {fileID: 9070465450179071810}
   sw: {fileID: 1442667539775997}
-  speed: 3
-  isAttacking: 0
   rotSpeed: 10
   isRolling: 0
-  rollForce: 100
+  rollForce: 25
+  speed: 5
+  isAttacking: 0
 --- !u!136 &9072049733193313936
 CapsuleCollider:
   m_ObjectHideFlags: 0

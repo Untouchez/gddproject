@@ -22,7 +22,7 @@ public class Player : Health
     AttackMagnet attackMagnet;
     Transform cameraFollow;
     float acceleration = 10;
-    float decceleration = 12;
+    float decceleration = 21;
     Vector3 rawInput;
     Vector3 input;
 
@@ -55,10 +55,13 @@ public class Player : Health
 
     private void FixedUpdate()
     {
-
         Aiming();
 
-        if (CanMove()) {
+        if (isRolling)
+            return;
+        if (rawInput == Vector3.zero) {
+            rb.velocity = Vector3.zero;
+        } else {
             Vector3 direction = new Vector3(input.x, 0, input.y).normalized;
             rb.velocity = transform.TransformDirection(direction * speed);
         }
