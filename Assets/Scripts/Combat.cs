@@ -12,7 +12,8 @@ public class Combat : State
     public float rotSpeed;
     public float attackRange;
     public string myAttack;
-
+    public float attackSpeed;
+    float lastFired;
     public float test;
     public bool test2;
 
@@ -29,21 +30,27 @@ public class Combat : State
         Vector3 dirToPlayer = (player.transform.position - anim.transform.position);
         test = Vector3.Dot(dir, dirToPlayer);
 
+        //if close to player then attack
         if (Vector3.Distance(anim.transform.position, player.transform.position) >= attackRange+agent.stoppingDistance && !isAttacking()) {
+            //Chase Player
             anim.ResetTrigger("attack");
             anim.SetTrigger("cancel");
             myStateManager.ChangeState(chasePlayer);
         } else {
+            //close to player, rotate to player then attack
             dir = anim.transform.forward.normalized;
             dirToPlayer = (player.transform.position - anim.transform.position).normalized;
             agent.SetDestination(transform.position);
-            if (Vector3.Dot(dir,dirToPlayer) >= 0.9f) {
-                anim.SetFloat("speed", 0);
+            anim.SetFloat("speed", 0);
+            if (Vector3.Dot(dir,dirToPlayer) >= 0.9f && Time.time - lastFired > 1 / attackSpeed) {
+                //player is infront 
+                lastFired = Time.time;
                 anim.SetTrigger("attack");
                 agent.SetDestination(transform.position);
             } else {
                 anim.ResetTrigger("attack");
                 RotateToPlayer();
+
             }
         }
     }

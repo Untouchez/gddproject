@@ -418,6 +418,7 @@ MonoBehaviour:
   rotSpeed: 0.5
   attackRange: 1
   myAttack: attack
+  attackSpeed: 0.8
   test: 2
   test2: 0
 --- !u!1 &853252208
@@ -6510,7 +6511,7 @@ MonoBehaviour:
   sw: {fileID: 1442667539775997}
   rotSpeed: 10
   isRolling: 0
-  rollForce: 25
+  rollForce: 250
   speed: 5
   isAttacking: 0
 --- !u!136 &9072049733193313936

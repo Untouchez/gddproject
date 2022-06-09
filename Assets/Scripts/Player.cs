@@ -49,7 +49,7 @@ public class Player : Health
         if (Input.GetMouseButtonDown(0) && CanAttack())
             Attack();
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && rawInput!=Vector3.zero && CanMove())
+        if (Input.GetKeyDown(KeyCode.LeftShift) && CanRoll())
             Roll();
     }
 
@@ -150,11 +150,13 @@ public class Player : Health
             transform.forward = Vector3.Slerp(transform.forward, rollDirection, rotSpeed * Time.deltaTime);
             return;
         }
+
         if (rotTarget)
         {
             transform.forward = Vector3.Slerp(transform.forward, (rotTarget.position - transform.position).normalized, rotSpeed * Time.deltaTime);
             return;
         }
+
         if (CanMove())
         {
             transform.forward = Vector3.Slerp(transform.forward, cameraFollow.forward, rotSpeed * Time.deltaTime);
@@ -164,10 +166,11 @@ public class Player : Health
     }
 
     public void Roll() {
-        rollDirection = transform.TransformDirection(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")));
+        rb.velocity = Vector3.zero;
+        rollDirection = cameraFollow.TransformDirection(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")));
         StartCoroutine(isRollingCheck());
-        anim.SetTrigger("roll");
         rb.AddForce(rollDirection * rollForce);
+        anim.SetTrigger("roll");
     }
 
     IEnumerator isRollingCheck()
@@ -190,7 +193,7 @@ public class Player : Health
 
     public bool CanRoll()
     {
-        return rawInput != Vector3.zero && !isRolling && !isAttacking;
+        return rawInput != Vector3.zero && !isRolling;
     }
     public override void TakeDamage(int damage)
     {
