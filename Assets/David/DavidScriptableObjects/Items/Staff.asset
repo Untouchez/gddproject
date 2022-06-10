@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06262b8adc939de40be5e6e10991c194, type: 3}
-  m_Name: Dagger
+  m_Name: Staff
   m_EditorClassIdentifier: 
-  itemID: 48d1be96-a65d-4e94-ba49-99505741d9c5
-  displayName: Key
-  icon: {fileID: 21300000, guid: 12cc60ae92089b442a652450b38e73d0, type: 3}
+  itemID: f3fe74ba-2fb1-4611-b012-e451ceb3a67c
+  displayName: Staff
+  icon: {fileID: 21300000, guid: 443f91ad8705e3740887a3f274f1d219, type: 3}

@@ -8,11 +8,12 @@ namespace GDDProject.Core
 {
     public class InteractableNPC : MonoBehaviour, IInteractable
     {
-        [SerializeField] private Text interactUI = null;
+        [SerializeField] private Canvas interactUI = null;
         [SerializeField] private KeyCode keyToInteract = KeyCode.E;
 
         private PlayerConversant playerConversant;
         private bool toBeDestroyed = false;
+        private bool isConversant = false;
 
         private void Start()
         {
@@ -25,7 +26,8 @@ namespace GDDProject.Core
             if (interactUI.gameObject.activeSelf && Input.GetKeyDown(keyToInteract))
             {
                 GetComponent<AIConversant>().TalkToPlayer();
-                interactUI.gameObject.SetActive(false);
+                HideText();
+                isConversant = true;
             }
         }
 
@@ -60,15 +62,17 @@ namespace GDDProject.Core
         // makes sure that when player finishes a dialogue, the instruction text shows up
         private void EnableInstructionText()
         {
-            if (playerConversant.GetCurrentAIConversant() == null)
+            if (playerConversant.GetCurrentAIConversant() == null && isConversant)
             {
-                interactUI.gameObject.SetActive(true);
+                ShowText();
+                isConversant = false;
             }
         }
 
         public void ShowText()
         {
-            interactUI.text = "Press " + keyToInteract.ToString() + " to talk";
+            interactUI.GetComponentInChildren<Text>().text =
+                "Press " + keyToInteract.ToString() + " to talk";
             interactUI.gameObject.SetActive(true);
         }
 

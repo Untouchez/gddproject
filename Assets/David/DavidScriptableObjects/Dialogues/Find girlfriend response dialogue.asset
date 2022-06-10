@@ -1,0 +1,193 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8656887522327176490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: 203407f4-e3f9-42c5-bd46-1690c26a4137
+  m_EditorClassIdentifier: 
+  text: '?'
+  children:
+  - 8540f974-6252-4a57-8e0c-429f2cef5d6d
+  - bf69e15d-5799-4ee9-83e8-d08fb23813ee
+  rect:
+    serializedVersion: 2
+    x: 309
+    y: 158
+    width: 200
+    height: 100
+  isPlayerSpeaking: 0
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    ands: []
+--- !u!114 &-4849829882089876442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: 8540f974-6252-4a57-8e0c-429f2cef5d6d
+  m_EditorClassIdentifier: 
+  text: There is a very capable young man down there who would like to know more
+    about you. Are you interested in chatting with him?
+  children:
+  - 20a1df9c-22b2-44ae-ba35-d62bc0a2c625
+  rect:
+    serializedVersion: 2
+    x: 567
+    y: 157
+    width: 200
+    height: 100
+  isPlayerSpeaking: 1
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    ands:
+    - ors:
+      - condition: 1
+        negated: 0
+        objects:
+        - {fileID: 11400000, guid: 90ae9ebb0401e414d933c68fee7e5398, type: 2}
+    - ors:
+      - condition: 2
+        negated: 1
+        objects:
+        - {fileID: 11400000, guid: 90ae9ebb0401e414d933c68fee7e5398, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9f6cf506844954f91e24bb86f484d4, type: 3}
+  m_Name: Find girlfriend response dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 383482456590601100}
+  - {fileID: -8656887522327176490}
+  - {fileID: -4849829882089876442}
+  - {fileID: 3788801284244979137}
+  - {fileID: 8227269471794021874}
+  - {fileID: 2701188569793491036}
+  newNodeOffsetFromParent: {x: 50, y: 0}
+--- !u!114 &383482456590601100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: 35aad453-2b45-4b20-9fcc-67f6cb93a0fb
+  m_EditorClassIdentifier: 
+  text: Hello, beautiful lady
+  children:
+  - 203407f4-e3f9-42c5-bd46-1690c26a4137
+  rect:
+    serializedVersion: 2
+    x: 74
+    y: 157
+    width: 200
+    height: 100
+  isPlayerSpeaking: 1
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    ands: []
+--- !u!114 &2701188569793491036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: 3719910b-e24e-4e0e-b797-d7254dc6e860
+  m_EditorClassIdentifier: 
+  text: He needs to know how to flirt.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 806
+    y: 280
+    width: 200
+    height: 100
+  isPlayerSpeaking: 0
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    ands: []
+--- !u!114 &3788801284244979137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: 20a1df9c-22b2-44ae-ba35-d62bc0a2c625
+  m_EditorClassIdentifier: 
+  text: Ok.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 806
+    y: 155
+    width: 200
+    height: 100
+  isPlayerSpeaking: 0
+  onEnterAction: 
+  onExitAction: CompleteQuest
+  condition:
+    ands: []
+--- !u!114 &8227269471794021874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: bf69e15d-5799-4ee9-83e8-d08fb23813ee
+  m_EditorClassIdentifier: 
+  text: How was the young man?
+  children:
+  - 3719910b-e24e-4e0e-b797-d7254dc6e860
+  rect:
+    serializedVersion: 2
+    x: 560
+    y: 278
+    width: 200
+    height: 100
+  isPlayerSpeaking: 1
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    ands:
+    - ors:
+      - condition: 2
+        negated: 0
+        objects:
+        - {fileID: 11400000, guid: 90ae9ebb0401e414d933c68fee7e5398, type: 2}

@@ -19,7 +19,7 @@ namespace GDDProject.Quests
 
         public string GetTitle()
         {
-            return name;
+            return objective;
         }
 
         public IEnumerable<Reward> GetRewards()

@@ -10,6 +10,7 @@ namespace GDDProject.Core
     {
         [SerializeField] private Text interactUI = null;
         [SerializeField] private Text failureUI = null;
+        [SerializeField] private Canvas textContainerUI = null;
         [SerializeField] private KeyCode keyToInteract = KeyCode.E;
 
         private bool toBeDestoryed = false;
@@ -59,6 +60,7 @@ namespace GDDProject.Core
 
         public void ShowText()
         {
+            textContainerUI.gameObject.SetActive(true);
             interactUI.text = "Press " + keyToInteract.ToString() + " to pick up";
             if (failureUI.gameObject.activeSelf)
             {
@@ -69,10 +71,9 @@ namespace GDDProject.Core
 
         public void HideText()
         {
-            
+            textContainerUI.gameObject.SetActive(false);
             interactUI.gameObject.SetActive(false);
             failureUI.gameObject.SetActive(false);
-            
         }
 
         public bool IsToBeDestroyed()

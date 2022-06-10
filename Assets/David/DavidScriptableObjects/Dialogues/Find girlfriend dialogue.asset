@@ -1,0 +1,242 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8668615619722696095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: bde02c77-3fff-4f68-90a3-1be2b3aea955
+  m_EditorClassIdentifier: 
+  text: I screwed up....
+  children:
+  - c48664f3-68aa-4fca-92bb-1e35cd0d41eb
+  rect:
+    serializedVersion: 2
+    x: 546
+    y: 296
+    width: 200
+    height: 100
+  isPlayerSpeaking: 0
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    ands: []
+--- !u!114 &-5523498608902015959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: 92283b49-a033-4830-86e0-9c5e1310d0da
+  m_EditorClassIdentifier: 
+  text: How's it going with the girl?
+  children:
+  - bde02c77-3fff-4f68-90a3-1be2b3aea955
+  rect:
+    serializedVersion: 2
+    x: 289
+    y: 296
+    width: 200
+    height: 100
+  isPlayerSpeaking: 1
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    ands:
+    - ors:
+      - condition: 2
+        negated: 0
+        objects:
+        - {fileID: 11400000, guid: 90ae9ebb0401e414d933c68fee7e5398, type: 2}
+--- !u!114 &-3123612265694697447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: 25c6c4cf-d54b-46e4-86ee-f83ce2e25648
+  m_EditorClassIdentifier: 
+  text: Aight I gotchu bro! I will let her know about you.
+  children:
+  - c6d5eea7-5f25-4043-afe9-2accfda601ec
+  rect:
+    serializedVersion: 2
+    x: 782
+    y: 171
+    width: 200
+    height: 100
+  isPlayerSpeaking: 1
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    ands: []
+--- !u!114 &-1609567457942510083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: c6d5eea7-5f25-4043-afe9-2accfda601ec
+  m_EditorClassIdentifier: 
+  text: Thank you dude Imma get you some drinks tonight!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1014
+    y: 170
+    width: 200
+    height: 100
+  isPlayerSpeaking: 0
+  onEnterAction: 
+  onExitAction: GiveQuest
+  condition:
+    ands: []
+--- !u!114 &-852461749185990807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: 03ebe282-27c8-47c4-ac1e-2b6c4814d51e
+  m_EditorClassIdentifier: 
+  text: I like this girl outside that hall, but I don't have the balls to talk to
+    her...
+  children:
+  - 25c6c4cf-d54b-46e4-86ee-f83ce2e25648
+  rect:
+    serializedVersion: 2
+    x: 546
+    y: 170
+    width: 200
+    height: 100
+  isPlayerSpeaking: 0
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    ands: []
+--- !u!114 &-245866487146640509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: 1c61c53d-2366-4adc-bad9-8ad6ba8dbeab
+  m_EditorClassIdentifier: 
+  text: What happened?
+  children:
+  - 03ebe282-27c8-47c4-ac1e-2b6c4814d51e
+  rect:
+    serializedVersion: 2
+    x: 294
+    y: 172
+    width: 200
+    height: 100
+  isPlayerSpeaking: 1
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    ands:
+    - ors:
+      - condition: 1
+        negated: 1
+        objects:
+        - {fileID: 11400000, guid: 90ae9ebb0401e414d933c68fee7e5398, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9f6cf506844954f91e24bb86f484d4, type: 3}
+  m_Name: Find girlfriend dialogue
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 718052530344325096}
+  - {fileID: -245866487146640509}
+  - {fileID: -852461749185990807}
+  - {fileID: -3123612265694697447}
+  - {fileID: -1609567457942510083}
+  - {fileID: -5523498608902015959}
+  - {fileID: -8668615619722696095}
+  - {fileID: 7927675009219074415}
+  newNodeOffsetFromParent: {x: 50, y: 0}
+--- !u!114 &718052530344325096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: d7816019-7c56-4f57-aa4f-0f58cd4c6561
+  m_EditorClassIdentifier: 
+  text: :((
+  children:
+  - 1c61c53d-2366-4adc-bad9-8ad6ba8dbeab
+  - 92283b49-a033-4830-86e0-9c5e1310d0da
+  rect:
+    serializedVersion: 2
+    x: 55
+    y: 173
+    width: 200
+    height: 100
+  isPlayerSpeaking: 0
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    ands: []
+--- !u!114 &7927675009219074415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bf0cbba37a0f34eac887c04bd970d6, type: 3}
+  m_Name: c48664f3-68aa-4fca-92bb-1e35cd0d41eb
+  m_EditorClassIdentifier: 
+  text: Shit happens alright? Go get something to eat.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 792
+    y: 301
+    width: 200
+    height: 100
+  isPlayerSpeaking: 1
+  onEnterAction: 
+  onExitAction: 
+  condition:
+    ands: []

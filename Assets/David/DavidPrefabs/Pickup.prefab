@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactUI: {fileID: 3117109834021529105}
   failureUI: {fileID: 7882417240935986013}
+  textContainerUI: {fileID: 2957355525982373507}
   keyToInteract: 101
 --- !u!1 &3420616135268761769
 GameObject:
@@ -285,7 +286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4280955532812248456
 RectTransform:
   m_ObjectHideFlags: 0

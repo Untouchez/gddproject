@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e423e02a46975d4c8e3ca779bced6fe, type: 3}
-  m_Name: Find key
+  m_Script: {fileID: 11500000, guid: 06262b8adc939de40be5e6e10991c194, type: 3}
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  rewards:
-  - itemReward: {fileID: 11400000, guid: 78c6917a4c84ef94a87edd1d1652d272, type: 2}
-  objective: Find key
+  itemID: ec45188d-9527-4f31-b784-cb2623eb82fa
+  displayName: Sword
+  icon: {fileID: 21300000, guid: 1f1f743b560701e469cd159fcd3e4e99, type: 3}
